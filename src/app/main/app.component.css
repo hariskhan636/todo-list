@@ -1,9 +1,11 @@
 a{
     color: white;
+    text-decoration: none;
 }
 
 .header{
     background-color: #031A4E;
-    margin: -8px;
+    margin: -8px auto;
     padding: 10px;
+    width: 80%;
 }

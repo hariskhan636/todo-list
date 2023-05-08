@@ -3,17 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './main/app.component';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    CommonModule,RouterOutlet,
+    CommonModule,
+    RouterModule.forRoot([
+      {
+        path: 'list',
+        loadChildren: () =>
+          import('./todo/todo.module').then((mod) => mod.TodoModule),
+      },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
