@@ -18,12 +18,16 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.itemForm = new FormGroup({
-      item: new FormControl('', Validators.required),
+      item: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(70),
+      ]),
+      checked: new FormControl(false),
     });
   }
 
   addItem() {
-    const item1 = this.itemForm.getRawValue().item;
+    const item1 = this.itemForm.getRawValue();
     this.items.push(item1);
     this.itemForm.reset();
   }
@@ -34,12 +38,12 @@ export class TodoComponent implements OnInit {
 
   editItem(i: number) {
     this.index = i;
-    this.data = this.items[i];
+    this.data = this.items[i].item;
     this.editMode = true;
   }
 
   update() {
-    this.items[this.index] = this.data;
+    this.items[this.index].item = this.data;
     this.editMode = false;
     this.index = 0;
     this.itemForm.reset();

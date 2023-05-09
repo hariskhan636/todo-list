@@ -4,7 +4,7 @@
   padding: 10px;
   margin: 8px auto;
   background-color: white;
-  min-height: 500px;
+  height: 500px;
 }
 
 h3 {
@@ -44,6 +44,7 @@ input {
 
 .div2 {
   margin: 25px;
+  max-height: 500px;
   overflow: scroll;
 }
 
@@ -89,7 +90,7 @@ input[type="checkbox"] {
 }
 
 hr {
-  width: 100%;
+  min-width: 100%;
   border: solid 1px rgb(201, 194, 194);
 }
 
@@ -111,4 +112,6 @@ hr {
 
 .strikethrough {
   text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: red;
 }

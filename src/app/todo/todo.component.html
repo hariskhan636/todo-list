@@ -12,6 +12,9 @@
       <button [disabled]="itemForm.invalid" [hidden]="editMode" type="submit">
         ADD
       </button>
+      <p class="errors" *ngIf="item.errors?.['maxlength'] && editMode==false">
+        * Max {{ item.errors!["maxlength"].requiredLength }} characters allowed
+      </p>
       <button
         *ngIf="editMode == true"
         [disabled]="itemForm.invalid"
@@ -24,15 +27,17 @@
       <p class="errors" *ngIf="item.errors?.['required'] && editMode==false">
         * This can not be empty
       </p>
-      <p
-        class="errors"
-        *ngIf="editMode == true && item.errors?.['required']; else elseBlock"
-      >
-        * This can not be empty
-      </p>
-      <ng-template #elseBlock>
-        <p *ngIf="editMode == true" class="errors">Apply Changes</p>
-      </ng-template>
+      <ng-container *ngIf="editMode">
+        <p class="errors" *ngIf="item.errors?.['maxlength']">
+          * Max {{ item.errors!["maxlength"].requiredLength }} characters
+          allowed
+        </p>
+        <p class="errors" *ngIf="item.errors?.['required']">
+          * This can not be empty
+        </p>
+        <p *ngIf="!item.errors" class="errors">Apply Changes</p>
+      </ng-container>
+
       <button
         class="cancel"
         *ngIf="editMode == true"
@@ -49,10 +54,10 @@
         <input
           type="checkbox"
           class="checkbox"
-          (change)="item.isChecked = !item.isChecked"
+          (change)="item.checked = !item.checked"
         />
-        <p [ngClass]="{ strikethrough: item.isChecked }">
-          {{ item }}
+        <p [ngClass]="{ strikethrough: item.checked }">
+          {{ item.item }}
         </p>
       </label>
       <div class="icons">
