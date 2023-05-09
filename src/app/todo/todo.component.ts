@@ -9,6 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class TodoComponent implements OnInit {
   itemForm!: FormGroup;
   items: any = [];
+  data = '';
+  editMode = false;
+  index = 0;
+  isChecked: boolean = false;
 
   constructor() {}
 
@@ -21,5 +25,27 @@ export class TodoComponent implements OnInit {
   addItem() {
     const item1 = this.itemForm.getRawValue().item;
     this.items.push(item1);
+    this.itemForm.reset();
+  }
+
+  deleteItem(i: number) {
+    this.items.splice(i, 1);
+  }
+
+  editItem(i: number) {
+    this.index = i;
+    this.data = this.items[i];
+    this.editMode = true;
+  }
+
+  update() {
+    this.items[this.index] = this.data;
+    this.editMode = false;
+    this.index = 0;
+    this.itemForm.reset();
+  }
+
+  get item() {
+    return this.itemForm.controls['item'];
   }
 }

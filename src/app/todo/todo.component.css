@@ -1,71 +1,114 @@
-.container{
-    font-family: 'Times New Roman', Times, serif;
-    width: 80%;
-    padding: 10px;
-    margin: 8px auto;
-    background-color: aquamarine;
-    height: 500px;
+.container {
+  font-family: "Times New Roman", Times, serif;
+  width: 80%;
+  padding: 10px;
+  margin: 8px auto;
+  background-color: white;
+  min-height: 500px;
 }
 
-h3{
-    font-weight: 800;
-    font-size: 30px;
-    margin: 10px;
-    margin-left: 25px;
+h3 {
+  font-weight: 800;
+  font-size: 30px;
+  margin: 10px;
+  margin-left: 25px;
 }
 
-h4{
-    font-weight: 300;
-    font-size: 15px;
-    margin: 10px;
-    margin-left: 25px;
+h4 {
+  font-weight: 300;
+  font-size: 15px;
+  margin: 10px;
+  margin-left: 25px;
 }
 
-form{
-    display: flex;
-    justify-content: space-between;
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-button{
-    width: 10%;
-    margin-right: 25px;
-    background-color: #007BFF;
-    color: white;
-    border: 0;
-    border-radius: 5px;
+button {
+  width: 10%;
+  margin-right: 25px;
+  background-color: #007bff;
+  color: white;
+  border: 0;
+  border-radius: 5px;
 }
 
-input{
-    width: 80%;
-    margin-left: 25px;
-    padding: 5px 10px;
+input {
+  width: 80%;
+  margin-left: 25px;
+  padding: 5px 10px;
 }
 
-.div2{
-    border: solid 1px black;
-    margin: 25px;
+.div2 {
+  margin: 25px;
+  overflow: scroll;
 }
 
-.list-items{
-    display: flex;
-    justify-content: space-between;
+.list-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: auto;
 }
 
-p{
-    font-size: 25px;
-    margin: 0;
-    margin-bottom: 20px;
-    border: solid 1px black;
+p {
+  font-size: 25px;
+  margin: 0;
 }
 
-i{
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-right: 5px;
-    color: #007BFF;
+i {
+  font-size: 20px;
+  margin-right: 5px;
+  color: white;
+  background-color: #007bff;
+  padding: 5px;
 }
 
-.icons{
-    border: solid 1px black;
+.check {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  /* border: solid 1px black; */
+}
+
+.checkbox {
+  margin-right: 10px;
+  margin-bottom: 0px;
+  border: 0;
+  height: 20px;
+  width: 20px;
+}
+
+input[type="checkbox"] {
+  accent-color: #29a746;
+}
+
+hr {
+  width: 100%;
+  border: solid 1px rgb(201, 194, 194);
+}
+
+.errors {
+  color: red;
+  width: 80%;
+  margin-left: 25px;
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+.cancel {
+  background-color: red;
+  width: 10%;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
